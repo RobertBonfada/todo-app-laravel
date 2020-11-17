@@ -19,19 +19,19 @@ class TaskController extends Controller
         $task->task = request("task");
         $task->iscompleted = false;
         $task->save();
-        return redirect::back()->with("message", "Task has been added");
+        return back()->with("message", "Task has been added");
     }
 
     public function complete($id) {
         $task = Task::find($id);
         $task->iscompleted = true;
         $task->save();
-        return redirect::back()->with("message", "Task has been added to completed list");
+        return back()->with("message", "Task has been added to completed list");
     }
 
     public function destroy($id) {
         $task = Task::find($id);
         $task->delete();
-        return redirect::back()->with('message', "Task has been deleted");
+        return back()->with('message', "Task has been deleted");
     }
 }
